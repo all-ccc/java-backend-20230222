@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;chapter5.B_APIClass&apos; to &apos;chapter5.B_ApiClass&apos;&#x0D;&#x0A;- Original project: &apos;JavaBasic&apos;&#x0D;&#x0A;- Original element: &apos;JavaBasic/src/chapter5.B_APIClass&apos;&#x0D;&#x0A;- Renamed element: &apos;JavaBasic/src/chapter5.B_ApiClass&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;chapter5.B_APIClass&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;chapter5.B_APIClass" name="chapter5.B_ApiClass" qualified="false" references="true" stamp="1678325652027" textual="false" version="1.0"/>
+</session>

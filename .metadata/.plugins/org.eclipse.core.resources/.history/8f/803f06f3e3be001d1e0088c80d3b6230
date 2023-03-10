@@ -1,0 +1,53 @@
+package chapter6.A_CollectionClass;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+// Collection Framework
+// 배열형태의 데이터를 보다 편하게 사용할 수 있도록 해주는 클래스의 집합
+
+public class CollectionClass {
+
+	public static void main(String[] args) {
+		
+		// Set 클래스
+		// 집합 - 중복을 허용하지 않고 순서가 없는 형태
+		// 순서가 없기 때문에 index 사용 불가능
+		
+		// Set을 구현해주는 HashSet과 TreeSet
+		// HashSet<E> : 중복을 허용하지 않고 순서가 없는 형태
+		Set<Integer> integerSet = new HashSet<Integer>();
+		integerSet.add(4324);
+		integerSet.add(1342);
+		integerSet.add(267);
+		integerSet.add(55);
+		integerSet.add(366);
+		integerSet.add(187);
+		
+		Iterator<Integer> iterator = integerSet.iterator();
+		
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+		
+//		for (Integer item : integerSet) {
+//			System.out.println(item);
+//		}
+		
+		// TreeSet<E> : 중복을 허용하지 않고 순서가 없는 형태 + 정렬
+		Set<Integer> treeSet = new TreeSet<Integer>();
+		treeSet.add(4859);
+		treeSet.add(123);
+		treeSet.add(4859);
+		treeSet.add(345);
+		treeSet.add(789);
+		
+		for (Integer item : treeSet) {
+			System.out.println(item);
+		}
+		
+	}
+
+}
