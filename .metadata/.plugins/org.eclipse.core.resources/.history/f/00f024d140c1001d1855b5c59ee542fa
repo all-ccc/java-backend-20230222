@@ -1,0 +1,9 @@
+package trainReservation.entity;
+//정차역 (class - 역 명, 도착시간, 출발시간)
+// 정차역 Entity class
+public class StopStation {
+	private String stationName;
+	private String departureTime;
+	private String arrivalTime;
+	
+}

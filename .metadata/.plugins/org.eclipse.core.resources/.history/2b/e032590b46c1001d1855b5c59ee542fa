@@ -1,0 +1,27 @@
+package trainReservation;
+
+import java.util.List;
+
+import trainReservation.entity.Cost;
+import trainReservation.entity.Train;
+
+public class MainApplication {
+	
+	private static List<Train> trains;
+	private static List<Cost> costs;
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Run Test");
+		
+	}
+	
+	private void initData() {
+		
+		costs.add(new Cost("부산역", "서울역", 30000));
+		costs.add(new Cost("부산역", "대전역", 20000));
+		costs.add(new Cost("부산역", "대구역", 10000));
+		
+	}
+	
+}

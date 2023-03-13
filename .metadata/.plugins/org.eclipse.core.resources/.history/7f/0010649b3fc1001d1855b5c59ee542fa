@@ -1,0 +1,9 @@
+package trainReservation.entity;
+
+
+public class Seat {
+	int roomNumber;
+	String seatNumber;
+	boolean seatStatus;
+	
+}

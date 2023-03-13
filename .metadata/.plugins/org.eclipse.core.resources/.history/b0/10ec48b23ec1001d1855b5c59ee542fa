@@ -1,0 +1,14 @@
+package trainReservation.entity;
+
+// 기차 정보 Entity class
+public class Train {
+	String trainNumber;
+	String departureTime;
+	String arrivalTime;
+	int takeMinute;
+	String type;
+	// 비용 (class - 출발역, 도착역, 금액) - train에 종속되지 않음
+	// 정차역 (class - 역 명, 도착시간, 출발시간)
+	// 남아있는 좌석 (class - 호차, 좌석 번호, 좌석 상태)
+	
+}
