@@ -69,6 +69,25 @@ public class GetTrainListDto {
 				+ ", departureTime=" + departureTime + ", numberOfPeople=" + numberOfPeople + "]";
 	}
 	
+	public boolean isEmpty() {
+		return this.departureStation.isBlank() ||
+				this.arrivalStation.isBlank() ||
+				this.departureTime.isBlank();
+	}
+		// main에서 if문 길게 쓰지 말고
+		
+	public boolean isEqualStation() {
+		return this.departureStation.equals(this.arrivalStation);
+	}
+	
+	public boolean isEqualDepartureStation(String station) {
+		return this.departureStation.equals(station);
+	}
+	
+	public boolean isEqualArrivalStation(String station) {
+		return this.arrivalStation.equals(station);
+	}
+	
 	
 	
 	
