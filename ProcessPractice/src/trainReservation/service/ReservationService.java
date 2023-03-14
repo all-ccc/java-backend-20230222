@@ -38,11 +38,9 @@ public class ReservationService {
 				
 				if (!dto.isEqualDepartureStation(stopStationName)) continue;
 				
-					
 				LocalTime stationDepartureTime = LocalTime.parse(dto.getDepartureTime(), timeFormatter);
 				
 				if (stationDepartureTime.isBefore(departureTime)) break;
-				
 				
 				sameStationIndex = stopStationIndex;
 				break;
@@ -51,18 +49,15 @@ public class ReservationService {
 			
 			if (sameStationIndex == -1) continue;
 			
-			
+			//
 			boolean isPossible = false;
-			
 			
 			for (int stopStationIndex = 0; stopStationIndex < stopStations.size(); stopStationIndex++) {
 				String stationName = stopStations.get(stopStationIndex).getStationName();
 				
 				if (!dto.isEqualArrivalStation(stationName)) continue;
 				
-				
 				if (stopStationIndex <= sameStationIndex) break;
-				
 				
 				isPossible = true;
 				break;
