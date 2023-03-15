@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import trainReservation.dto.GetTrainListDto;
+import trainReservation.dto.PostReservationDto;
+import trainReservation.entity.ReservationInfo;
 import trainReservation.entity.Train;
 import trainReservation.service.ReservationService;
 
@@ -23,7 +25,7 @@ public class ReservationController {
 	
 	public void reservation() {
 		while (true) { // 무한반복하기 위해 true
-			GetTrainListDto dto = new GetTrainListDto();
+			GetTrainListDto getTrainListdto = new GetTrainListDto();
 			
 			LocalTime departureTime = null;
 			
@@ -37,32 +39,45 @@ public class ReservationController {
 //			dto.setNumberOfPeople(scanner.nextInt()); -> dto 기본생성자에 넣어줌
 			
 			// 입력 검증
-			if (dto.isEmpty()) {
+			if (getTrainListdto.isEmpty()) {
 				System.out.println("모두 입력하세요.");
 				continue;
 			}
 			
 			try {
-				departureTime = LocalTime.parse(dto.getDepartureTime(), timeFormatter);
+				departureTime = LocalTime.parse(getTrainListdto.getDepartureTime(), timeFormatter);
 			} catch(Exception exception) {
 				System.out.println("잘못된 시간입니다.");
 				continue;
 			}
 			
-			if (dto.getNumberOfPeople() <= 0) {
+			if (getTrainListdto.getNumberOfPeople() <= 0) {
 				System.out.println("잘못된 인원입니다.");
 				continue;
 			}
 			
-			if (dto.isEqualStation()) {
+			if (getTrainListdto.isEqualStation()) {
 				System.out.println("출발역과 도착역이 같습니다.");
 				continue;
 			}
 			//
 			
-			List<Train> possibleTrains = reservationService.getPossibleTrainList(dto, departureTime);
+			List<Train> possibleTrains = reservationService.getPossibleTrainList(getTrainListdto, departureTime);
 			
 			System.out.println(possibleTrains.toString());
+			
+			ReservationInfo reservationInfo = null;
+			while (true) {
+				
+				PostReservationDto postReservationDto = new PostReservationDto(getTrainListdto.getNumberOfPeople());
+				reservationInfo = reservationService.postReservation(postReservationDto, getTrainListdto);
+				if (reservationInfo == null) continue;
+				break;
+				
+			}
+			System.out.println(reservationInfo.toString());
+			
+			
 		}
 	}
 	

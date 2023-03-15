@@ -1,0 +1,13 @@
+package trainReservation.entity;
+
+// 예약 번호
+// 열차 번호
+// 좌석 번호 리스트
+// 출발역
+// 도착역
+// 총 금액
+public class ReservationInfo {
+	
+	
+	
+}

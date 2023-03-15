@@ -21,9 +21,13 @@ public class Seat {
 	public String getSeatNumber() {
 		return seatNumber;
 	}
-
+	
 	public boolean isSeatStatus() {
 		return seatStatus;
+	}
+	
+	public void setSeatStatus(boolean seatStatus) {
+		this.seatStatus = seatStatus;
 	}
 
 	@Override
