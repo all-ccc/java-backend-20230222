@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import trainReservation.dto.GetReservationDto;
 import trainReservation.dto.GetTrainListDto;
 import trainReservation.dto.PostReservationDto;
 import trainReservation.entity.ReservationInfo;
@@ -19,13 +20,17 @@ public class ReservationController {
 	
 	private ReservationService reservationService;
 	
+	private GetTrainListDto getTrainListDto;
+	private GetReservationDto getReservationDto;
+	private PostReservationDto postReservationDto;
+	
 	public ReservationController() {
 		this.reservationService = new ReservationService();
 	}
 	
 	public void reservation() {
 		while (true) { // 무한반복하기 위해 true
-			GetTrainListDto getTrainListdto = new GetTrainListDto();
+			getTrainListDto = new GetTrainListDto();
 			
 			LocalTime departureTime = null;
 			
@@ -39,46 +44,78 @@ public class ReservationController {
 //			dto.setNumberOfPeople(scanner.nextInt()); -> dto 기본생성자에 넣어줌
 			
 			// 입력 검증
-			if (getTrainListdto.isEmpty()) {
+			if (getTrainListDto.isEmpty()) {
 				System.out.println("모두 입력하세요.");
 				continue;
 			}
 			
 			try {
-				departureTime = LocalTime.parse(getTrainListdto.getDepartureTime(), timeFormatter);
+				departureTime = LocalTime.parse(getTrainListDto.getDepartureTime(), timeFormatter);
 			} catch(Exception exception) {
 				System.out.println("잘못된 시간입니다.");
 				continue;
 			}
 			
-			if (getTrainListdto.getNumberOfPeople() <= 0) {
+			if (getTrainListDto.getNumberOfPeople() <= 0) {
 				System.out.println("잘못된 인원입니다.");
 				continue;
 			}
 			
-			if (getTrainListdto.isEqualStation()) {
+			if (getTrainListDto.isEqualStation()) {
 				System.out.println("출발역과 도착역이 같습니다.");
 				continue;
 			}
 			//
 			
-			List<Train> possibleTrains = reservationService.getPossibleTrainList(getTrainListdto, departureTime);
-			
+			List<Train> possibleTrains = reservationService.getPossibleTrainList(getTrainListDto, departureTime);
 			System.out.println(possibleTrains.toString());
 			
-			ReservationInfo reservationInfo = null;
-			while (true) {
-				
-				PostReservationDto postReservationDto = new PostReservationDto(getTrainListdto.getNumberOfPeople());
-				reservationInfo = reservationService.postReservation(postReservationDto, getTrainListdto);
-				if (reservationInfo == null) continue;
-				break;
-				
-			}
-			System.out.println(reservationInfo.toString());
+			postReservation();
+			break;
+		}
+		
+	}
+	
+	public void postReservation() {
+		while (true) {
 			
+			postReservationDto = new PostReservationDto(getTrainListDto.getNumberOfPeople());
+			
+			ReservationInfo reservationInfo =
+					reservationService.postReservation(postReservationDto, getTrainListDto);
+			if (reservationInfo == null) continue;
+			
+			System.out.println(reservationInfo.toString());
+			break;
 			
 		}
+		
 	}
+	
+	public void getReservation() {
+		
+		while(true) {
+			
+			getReservationDto = new GetReservationDto();
+			String reservationNumber = getReservationDto.getReservationNumber();
+			
+			if(reservationNumber.isBlank()) {
+				System.out.println("예약번호를 입력하세요.");
+				continue;
+			}
+			
+			ReservationInfo reservationInfo = // null값일 수도 있음. 항상 생성되어서 온다는 보장X
+					reservationService.getReservation(getReservationDto);
+			
+			String message = 
+					reservationInfo == null ? "해당하는 예약번호가 없습니다."
+											: reservationInfo.toString(); // 삼항연산자 사용 예시.. 되도록 쓰지 X
+			
+			System.out.println(message);
+			break;
+		}
+		
+	}
+	
 	
 }

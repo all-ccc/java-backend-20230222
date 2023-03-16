@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="chapter3.B_VariableMethod.TriangleMath"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="chapter3.B_VariableMethod.Triangle"/>
     <fullyQualifiedTypeName name="chapter3.D_Constructor.Circle"/>
     <fullyQualifiedTypeName name="chapter3.E_Inheritance.Developer"/>
     <fullyQualifiedTypeName name="chapter3.F_Overriding.Developer"/>
@@ -48,16 +45,19 @@
     <fullyQualifiedTypeName name="chapter6.B_Generic.GenericClass"/>
     <fullyQualifiedTypeName name="trainReservation.entity.Cost"/>
     <fullyQualifiedTypeName name="trainReservation.entity.Seat"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="trainReservation.entity.StopStation"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="trainReservation.entity.Train"/>
-    <fullyQualifiedTypeName name="trainReservation.dto.GetTrainListDto"/>
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="trainReservation.service.ReservationService"/>
     <fullyQualifiedTypeName name="trainReservation.controller.ReservationController"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="trainReservation.dto.PostReservationDto"/>
+    <fullyQualifiedTypeName name="trainReservation.entity.Train"/>
+    <fullyQualifiedTypeName name="trainReservation.dto.GetTrainListDto"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="trainReservation.entity.StopStation"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="trainReservation.entity.ReservationInfo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

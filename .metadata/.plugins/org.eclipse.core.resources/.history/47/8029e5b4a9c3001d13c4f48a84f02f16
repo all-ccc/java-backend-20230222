@@ -1,0 +1,17 @@
+package board.entity;
+// 회원
+//
+// 이메일 주소(문자열) / 비밀번호(문자열) / 비밀번호 확인(문자열) / 닉네임(문자열) /
+// 핸드폰 번호(문자열) / 주소(문자열) / 상세 주소(문자열) /
+// 프로필 사진(문자열-이미지 링크)
+
+public class User {
+	private String email;
+	private String password;
+	private String passwordCheck;
+	private String nickname;
+	private String phoneNumber;
+	private String address;
+	private String addressDetail;
+	private String profileImageUrl;
+}

@@ -28,6 +28,7 @@ public class PostReservationDto {
 		while (this.seats.size() < numberOfPeople) {
 			System.out.println("좌석 번호 : ");
 			String seat = scanner.nextLine();
+			
 			if (seat.isBlank()) {
 				System.out.println("좌석 번호를 입력하세요.");
 				continue;
