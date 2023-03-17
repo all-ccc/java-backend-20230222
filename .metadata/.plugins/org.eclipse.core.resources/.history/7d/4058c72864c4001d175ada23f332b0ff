@@ -1,0 +1,21 @@
+package board.service;
+
+import board.dto.request.user.SignUpDto;
+import board.dto.response.ResponseDto;
+import trainReservation.entity.ReservationInfo;
+
+public class UserService {
+	
+	public ResponseDto<Boolean> signUp(SignUpDto dto) {
+		
+		String password = dto.getPassword();
+		String passwordCheck = dto.getPasswordCheck();
+		
+		if(!password.equals(passwordCheck))
+			return new ResponseDto(false, "비밀번호가 서로 다릅니다.", false);
+		
+		
+		
+	}
+	
+}

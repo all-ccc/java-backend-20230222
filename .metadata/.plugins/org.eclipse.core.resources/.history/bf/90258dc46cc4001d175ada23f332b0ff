@@ -1,0 +1,38 @@
+package board.service;
+
+import board.common.constant.ResponseMessage;
+import board.dto.request.user.SignUpDto;
+import board.dto.response.ResponseDto;
+import board.entity.User;
+import board.repository.UserRepository;
+import trainReservation.entity.ReservationInfo;
+
+public class UserService {
+	
+	private UserRepository userRepository;
+	
+	public UserService() {
+		userRepository = new UserRepository();
+	}
+	
+	public ResponseDto<Boolean> signUp(SignUpDto dto) {
+		// SignUpDto dto를 user Entity 통해서 userRepository의 userTable로 넣어줌
+		String email = dto.getEmail();
+		String password = dto.getPassword();
+		String passwordCheck = dto.getPasswordCheck();
+		
+		boolean hasEmail = userRepository.existsByEmail(email);
+		if (hasEmail)
+			return new ResponseDto<Boolean>(false, ResponseMessage.EXIST_EMAIL, false);
+		
+		if(!password.equals(passwordCheck))
+			return new ResponseDto(false, ResponseMessage.PASSWORD_NOT_MATCH, false);
+		
+		User user = new User(dto);
+		userRepository.save(user);
+		
+		return new ResponseDto<Boolean>(true, ResponseMessage.SUCCESS, true);
+		
+	}
+	
+}

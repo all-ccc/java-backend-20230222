@@ -1,0 +1,20 @@
+package board.controller;
+
+import board.dto.request.user.SignUpDto;
+
+public class UserController {
+	
+	public void signUp(SignUpDto dto) {
+		
+		if (dto.validate()) {
+			System.out.println("400 Bad Request");
+			System.out.println("모든 값을 입력하세요.");
+			return;
+		}
+		
+		
+		
+	}
+	
+	
+}
