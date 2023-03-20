@@ -39,7 +39,7 @@ public class GetBoardListResponseDto {
 		this.boardNumber = board.getBoardNumber();
 		this.writerProfileImageUrl = board.getWriterProfileImageUrl();
 		this.writerNickname = board.getWriterNickname();
-		this.writeDate = board.getWriterDate();
+		this.writeDate = board.getWriteDate();
 		this.title = board.getTitle();
 		this.content = board.getContent();
 		this.boardImageUrl = board.getBoardImageUrl();

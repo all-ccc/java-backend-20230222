@@ -20,7 +20,7 @@ public class Board {
 	private String writerEmail;
 	private String writerNickname;
 	private String writerProfileImageUrl;
-	private String writerDate;
+	private String writeDate;
 	private String title;
 	private String content;
 	private int viewCount;
@@ -28,23 +28,23 @@ public class Board {
 	private List<Comment> commentList;
 	
 	public Board() {}
-	
+
 	public Board(int boardNumber, String boardImageUrl, String writerEmail, String writerNickname,
-			String writerProfileImageUrl, String writerDate, String title, String content, int viewCount,
+			String writerProfileImageUrl, String writeDate, String title, String content, int viewCount,
 			List<Like> likeList, List<Comment> commentList) {
 		this.boardNumber = boardNumber;
 		this.boardImageUrl = boardImageUrl;
 		this.writerEmail = writerEmail;
 		this.writerNickname = writerNickname;
 		this.writerProfileImageUrl = writerProfileImageUrl;
-		this.writerDate = writerDate;
+		this.writeDate = writeDate;
 		this.title = title;
 		this.content = content;
 		this.viewCount = viewCount;
 		this.likeList = likeList;
 		this.commentList = commentList;
 	}
-	
+
 	public Board(PostBoardDto dto, User user) {
 		Date now = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -54,14 +54,14 @@ public class Board {
 		this.writerEmail = user.getEmail();
 		this.writerNickname = user.getNickname();
 		this.writerProfileImageUrl = user.getProfileImageUrl();
-		this.writerDate = simpleDateFormat.format(now);
+		this.writeDate = simpleDateFormat.format(now);
 		this.title = dto.getTitle();
 		this.content = dto.getContent();
 		this.viewCount = 0;
 		this.likeList = new ArrayList<>();
 		this.commentList = new ArrayList<>();
 	}
-
+	
 	public int getBoardNumber() {
 		return boardNumber;
 	}
@@ -82,8 +82,8 @@ public class Board {
 		return writerProfileImageUrl;
 	}
 
-	public String getWriterDate() {
-		return writerDate;
+	public String getWriteDate() {
+		return writeDate;
 	}
 
 	public String getTitle() {
@@ -126,8 +126,8 @@ public class Board {
 		this.writerProfileImageUrl = writerProfileImageUrl;
 	}
 
-	public void setWriterDate(String writerDate) {
-		this.writerDate = writerDate;
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
 	}
 
 	public void setTitle(String title) {
@@ -154,8 +154,9 @@ public class Board {
 	public String toString() {
 		return "Board [boardNumber=" + boardNumber + ", boardImageUrl=" + boardImageUrl + ", writerEmail=" + writerEmail
 				+ ", writerNickname=" + writerNickname + ", writerProfileImageUrl=" + writerProfileImageUrl
-				+ ", writerDate=" + writerDate + ", title=" + title + ", content=" + content + ", viewCount="
-				+ viewCount + ", likeList=" + likeList + ", commentList=" + commentList + "]";
+				+ ", writeDate=" + writeDate + ", title=" + title + ", content=" + content + ", viewCount=" + viewCount
+				+ ", likeList=" + likeList + ", commentList=" + commentList + "]";
 	}
+	
 	
 }

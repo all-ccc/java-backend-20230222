@@ -47,7 +47,7 @@ public class GetBoardResponseDto {
 		this.writerEmail = board.getWriterEmail();
 		this.writerProfileImageUrl = board.getWriterProfileImageUrl();
 		this.writerNickname = board.getWriterNickname();
-		this.writeDate = board.getWriterDate();
+		this.writeDate = board.getWriteDate();
 		this.likeCount = board.getLikeList().size();
 		this.likeList = board.getLikeList();
 		this.commentCount = board.getCommentList().size();

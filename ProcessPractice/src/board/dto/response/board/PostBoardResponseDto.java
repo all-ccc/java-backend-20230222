@@ -13,7 +13,7 @@ public class PostBoardResponseDto {
 	private String writerEmail;
 	private String writerNickname;
 	private String writerProfileImageUrl;
-	private String writerDate;
+	private String writeDate;
 	private String title;
 	private String content;
 	private int viewCount;
@@ -23,16 +23,16 @@ public class PostBoardResponseDto {
 	
 	public PostBoardResponseDto() {}
 
-
 	public PostBoardResponseDto(int boardNumber, String boardImageUrl, String writerEmail, String writerNickname,
-			String writerProfileImageUrl, String writerDate, String title, String content, int viewCount,
+			String writerProfileImageUrl, String writeDate, String title, String content, int viewCount,
 			List<Like> likeList, List<Comment> commentList) {
+		super();
 		this.boardNumber = boardNumber;
 		this.boardImageUrl = boardImageUrl;
 		this.writerEmail = writerEmail;
 		this.writerNickname = writerNickname;
 		this.writerProfileImageUrl = writerProfileImageUrl;
-		this.writerDate = writerDate;
+		this.writeDate = writeDate;
 		this.title = title;
 		this.content = content;
 		this.viewCount = viewCount;
@@ -46,14 +46,14 @@ public class PostBoardResponseDto {
 		this.writerEmail = board.getWriterEmail();
 		this.writerNickname = board.getWriterNickname();
 		this.writerProfileImageUrl = board.getWriterProfileImageUrl();
-		this.writerDate = board.getWriterDate();
+		this.writeDate = board.getWriteDate();
 		this.title = board.getTitle();
 		this.content = board.getContent();
 		this.viewCount = board.getViewCount();
 		this.likeList = board.getLikeList();
 		this.commentList = board.getCommentList();
 	}
-	
+
 	public int getBoardNumber() {
 		return boardNumber;
 	}
@@ -79,8 +79,8 @@ public class PostBoardResponseDto {
 	}
 
 
-	public String getWriterDate() {
-		return writerDate;
+	public String getWriteDate() {
+		return writeDate;
 	}
 
 
@@ -134,8 +134,8 @@ public class PostBoardResponseDto {
 	}
 
 
-	public void setWriterDate(String writerDate) {
-		this.writerDate = writerDate;
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
 	}
 
 
@@ -168,8 +168,9 @@ public class PostBoardResponseDto {
 	public String toString() {
 		return "PostBoardResponseDto [boardNumber=" + boardNumber + ", boardImageUrl=" + boardImageUrl
 				+ ", writerEmail=" + writerEmail + ", writerNickname=" + writerNickname + ", writerProfileImageUrl="
-				+ writerProfileImageUrl + ", writerDate=" + writerDate + ", title=" + title + ", content=" + content
+				+ writerProfileImageUrl + ", writeDate=" + writeDate + ", title=" + title + ", content=" + content
 				+ ", viewCount=" + viewCount + ", likeList=" + likeList + ", commentList=" + commentList + "]";
 	}
+
 	
 }
