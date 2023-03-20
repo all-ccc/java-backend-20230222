@@ -19,6 +19,7 @@ public class BoardController {
 	}
 	
 	public void postBoard(PostBoardDto dto) {
+		
 		if (dto.auth()) {
 			System.out.println(HttpStatus.UNAUTHORIZED);
 			return;
