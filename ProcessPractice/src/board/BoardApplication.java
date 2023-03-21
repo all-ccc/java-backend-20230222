@@ -154,7 +154,7 @@ public class BoardApplication {
 		
 	}
 	
-//	private void patchBoard() {
+//	private static void patchBoard() {
 //		Scanner scanner = new Scanner(System.in);
 //		try {
 //			PatchBoardDto patchBoardDto = new PatchBoardDto();
